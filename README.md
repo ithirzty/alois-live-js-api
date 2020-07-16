@@ -32,7 +32,7 @@ getChatMessages('aloisxyz', function(message) {
 ### ``sendChatMessage(message, key)``
 * message: type: string, usage: message to send in chat, needs to be below 300 chars.
 * key: type: string, usage: streamer's streaming key whoses chat will receive an alert with the above message.
-* return: type: json, usage: status of the request (error/succes/delay)
+* *return: type: json, usage: status of the request (error/succes/delay)*
 If two messages are sends without 1 second of interval, the messages following the first one and so on will be delayed of the time required to separate them of 1 second.
 ##### Exemple:
 ```js
@@ -52,4 +52,13 @@ console.log(status.error);
 getStreams(10, function(streams){
 ...
 });
+```
+
+### ``getViews(username)``
+* username: type:string, usage: username whose stream current number of viewers as to be fetched.
+* *return: type:int, usage: number of current viewers of the stream*
+##### Exemple:
+```js
+var views = getViews('aloisxyz');
+console.log('aloisxyz has', views);
 ```
