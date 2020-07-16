@@ -24,9 +24,11 @@ function getChatMessages(name, callback) {
 }
 
 function sendChatMessage(message, key) {
+  var result;
   $.get("https://live.alois.xyz/api/?SendChatMessage="+message+"&key="+key, function(e) {
-    return JSON.parse(e);
+    result = JSON.parse(e);
   });
+  return result;
 }
 
 function getStreams(limit, callback) {
@@ -41,4 +43,11 @@ function getViews(username) {
     views = e;
   });
   return views;
+}
+
+function getViewsLive(username, callback) {
+  var evtSource = new EventSource("https://live.alois.xyz/api/?GetViewsLive="+username);
+  evtSource.onmessage = function(e) {
+      callback(e.data);
+    };
 }
