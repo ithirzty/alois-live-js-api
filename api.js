@@ -34,3 +34,11 @@ function getStreams(limit, callback) {
     callback(Json.parse(e));
   });
 }
+
+function getViews(username) {
+  var views;
+  $.get("https://live.alois.xyz/api/?GetViews="+username, function(e) {
+    views = e;
+  });
+  return views;
+}
