@@ -55,8 +55,8 @@ getStreams(10, function(streams){
 ```
 
 ### ``getViews(username)``
-* username: type:string, usage: username whose stream current number of viewers as to be fetched.
-* *return: type:int, usage: number of current viewers of the stream*
+* username: type: string, usage: username whose stream current number of viewers as to be fetched.
+* *return: type: int, usage: number of current viewers of the stream*
 ##### Exemple:
 ```js
 var views = getViews('aloisxyz');
@@ -64,8 +64,8 @@ console.log('aloisxyz has', views);
 ```
 
 ### ``getViewsLive(username, callback)``
-* username: type:string, usage: username whose stream current number of viewers as to be fetched.
-* callback: type:function, usage: function to which the live number of views is passed.
+* username: type: string, usage: username whose stream current number of viewers as to be fetched.
+* callback: type: function, usage: function to which the live number of views is passed.
 ##### Exemple:
 ```js
 getViewsLive('aloisxyz', function(views){
