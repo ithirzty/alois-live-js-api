@@ -62,3 +62,14 @@ getStreams(10, function(streams){
 var views = getViews('aloisxyz');
 console.log('aloisxyz has', views);
 ```
+
+### ``getViewsLive(username, callback)``
+* username: type:string, usage: username whose stream current number of viewers as to be fetched.
+* callback: type:function, usage: function to which the live number of views is passed.
+##### Exemple:
+```js
+getViewsLive('aloisxyz', function(views){
+//gets run every time the number of views changes
+console.log('aloisxyz has now ', views, 'viewers.');
+});
+```
