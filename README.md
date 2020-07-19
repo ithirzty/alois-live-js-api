@@ -1,7 +1,7 @@
 # alois - live js api
 The alois - live API is made to be used in your JS projects.
 The focus of our API is to be used in DOM applications like to make a custom OBS browser source but a node.js version will be availabe in the futur.
-Our API works with the jquery library and auto includes it.
+Our API works with the jquery library.
 
 # How to use?
 In your html page put 
