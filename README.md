@@ -1,6 +1,7 @@
 # alois - live js api
 The alois - live API is made to be used in your JS projects.
-The focus of our API is to be used in DOM applications like to make a custom OBS browser source but a node.js version will be availabe.
+The focus of our API is to be used in DOM applications like to make a custom OBS browser source but a node.js version will be availabe in the futur.
+Our API works with the jquery library and auto includes it.
 
 # How to use?
 In your html page put 
@@ -72,4 +73,14 @@ getViewsLive('aloisxyz', function(views){
 //gets run every time the number of views changes
 console.log('aloisxyz has now ', views, 'viewers.');
 });
+```
+
+### ``getUserDetails(username)``
+* username: type: string, usage: username of user whose details will be fetched
+* *return: type: json, usage: an array containing user details*
+##### Exemple:
+```js
+console.log(getUserDetails(aloisxyz));
+
+console.log('aloisxyz has ', getUserDetails(aloisxyz).subs, ' subscribers');
 ```
