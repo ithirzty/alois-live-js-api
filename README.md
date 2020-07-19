@@ -51,11 +51,7 @@ console.log(status.error);
 * *return: type: json, usage: array of currently broadcasting streams.*
 ##### Exemple:
 ```js
-console.log(function(streams){
-55
-...
-56
-});getStreams(10));
+console.log(getStreams(10));
 ```
 
 ### ``getViews(username)``
@@ -64,7 +60,7 @@ console.log(function(streams){
 ##### Exemple:
 ```js
 var views = getViews('aloisxyz');
-console.log('aloisxyz has', views);
+console.log('aloisxyz has ', views, ' viewers');
 ```
 
 ### ``getViewsLive(username, callback)``
