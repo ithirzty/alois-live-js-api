@@ -2,11 +2,6 @@
 //////////////COPYRIGHT ALOIS LAURENT BOE//
 ///////////////////////////////////////////
 /// <reference path="https://code.jquery.com/jquery-3.4.1.min.js" />
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-
 function getChatMessages(name, callback) {
   var evtSource = new EventSource("https://live.alois.xyz/api/?GetChatMessages="+name);
   evtSource.onmessage = function(e) {
@@ -19,23 +14,43 @@ function getChatMessages(name, callback) {
 
 function sendChatMessage(message, key) {
   var result;
-  $.get("https://live.alois.xyz/api/?SendChatMessage="+message+"&key="+key, function(e) {
-    result = JSON.parse(e);
-  });
+  $.ajax({
+        url: "https://live.alois.xyz/api/?SendChatMessage="+message+"&key="+key,
+        type: 'get',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            result = data;
+        }
+     });
   return result;
 }
 
-function getStreams(limit, callback) {
-  $.get("https://live.alois.xyz/api/?GetStreams="+limit, function(e) {
-    callback(Json.parse(e));
-  });
+function getStreams(limit) {
+  var result;
+  $.ajax({
+        url: "https://live.alois.xyz/api/?GetStreams="+limit,
+        type: 'get',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            result = data;
+        }
+     });
+  return result;
 }
 
 function getViews(username) {
   var views;
-  $.get("https://live.alois.xyz/api/?GetViews="+username, function(e) {
-    views = e;
-  });
+  $.ajax({
+        url: "https://live.alois.xyz/api/?GetViews="+username,
+        type: 'get',
+        dataType: 'html',
+        async: false,
+        success: function(data) {
+            views = data;
+        }
+     });
   return views;
 }
 
@@ -48,8 +63,14 @@ function getViewsLive(username, callback) {
 
 function getUserDetails(username) {
   var result;
-  $.get("https://live.alois.xyz/api/?GetUserDetails="+username, function(e) {
-    result = JSON.parse(e);
-  });
+  $.ajax({
+        url: "https://live.alois.xyz/api/?GetUserDetails="+username,
+        type: 'get',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            result = data;
+        }
+     });
   return result;
 }
