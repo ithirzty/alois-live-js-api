@@ -79,7 +79,7 @@ console.log('aloisxyz has now ', views, 'viewers.');
 * *return: type: json, usage: an array containing user details*
 ##### Exemple:
 ```js
-console.log(getUserDetails(aloisxyz));
+console.log(getUserDetails('aloisxyz'));
 
 console.log('aloisxyz has ', getUserDetails(aloisxyz).subs, ' subscribers');
 ```
