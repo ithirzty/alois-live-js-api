@@ -45,3 +45,11 @@ function getViewsLive(username, callback) {
       callback(e.data);
     };
 }
+
+function getUserDetails(username) {
+  var result;
+  $.get("https://live.alois.xyz/api/?GetUserDetails="+username, function(e) {
+    result = JSON.parse(e);
+  });
+  return result;
+}
