@@ -46,14 +46,16 @@ console.log(status.error);
 }
 ```
 
-### ``getStreams(limit, callback)``
+### ``getStreams(limit)``
 * limit: type: int, usage: limit of number of broadcasting streams to be fetched, must be between 4 and 9999.
-* callback: type: function, usage: returns currently broadcasting streams.
+* *return: type: json, usage: array of currently broadcasting streams.*
 ##### Exemple:
 ```js
-getStreams(10, function(streams){
+console.log(function(streams){
+55
 ...
-});
+56
+});getStreams(10));
 ```
 
 ### ``getViews(username)``
