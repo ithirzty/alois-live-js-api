@@ -6,7 +6,7 @@ Our API works with the jquery library.
 # How to use?
 In your html page put 
 ```html
-<script srx="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://live.alois.xyz/api/api.js"></script>
 ```
 inside your ``<head>`` tag.
