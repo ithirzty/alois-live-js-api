@@ -83,3 +83,16 @@ console.log(getUserDetails('aloisxyz'));
 
 console.log('aloisxyz has ', getUserDetails(aloisxyz).subs, ' subscribers');
 ```
+
+### ``getDonations(username, callback)``
+* username: type: string, usage: username of user whose live donations must be fetched
+* callback: type: function, usage: function to execute on each new donations
+```js
+getDonations('aloisxyz', function(donation){
+console.log(donation.f, 'donated', donation.a, 'with the following message', donation.m);
+//donation.f (from)
+//donation.a (ammount)
+//donation.m (message)
+});
+```
+Why are the variables a single letter? Because the script was optimised to be used on the main wabsite by every viewer of the livestream.
