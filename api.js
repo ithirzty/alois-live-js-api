@@ -54,10 +54,3 @@ function getUserDetails(username) {
      });
   return result;
 }
-function getDonations(username, callback){
-  var evtSource = new EventSource("https://live.alois.xyz/api/?GetDonations="+username);
-  evtSource.onmessage = function(e) {
-    dono = JSON.parse(e.data);
-      callback(dono);
-    };
-}
