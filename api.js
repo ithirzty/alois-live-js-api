@@ -10,6 +10,8 @@ function getStreamEvents(name, callback) {
           callback({'pseudo': item.p, 'message': item.m, 'userColor': item.c, 'messageColor': item.mc, 'time': item.t});
       }else if(item.views != undefined) {
           callback({'views':item.views});
+      }else if(item.dono != undefined) {
+      callback({'dono':{'from':item.dono.f,'ammount':item.dono.a,'message':item.dono.m}});
       }
   };
 }
