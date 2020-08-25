@@ -2,20 +2,22 @@
 //////////////COPYRIGHT ALOIS LAURENT BOE//
 ///////////////////////////////////////////
 /// <reference path="https://code.jquery.com/jquery-3.4.1.min.js" />
-function getChatMessages(name, callback) {
-  var evtSource = new EventSource("https://live.alois.xyz/api/?GetChatMessages="+name);
+function getStreamEvents(name, callback) {
+  var evtSource = new EventSource("https://alois.xyz:3003/?token=null&chan="+name);
   evtSource.onmessage = function(e) {
     item = JSON.parse(e.data);
         if(item.m != undefined) {
           callback({'pseudo': item.p, 'message': item.m, 'userColor': item.c, 'messageColor': item.mc, 'time': item.t});
+      }else if(item.views != undefined) {
+          callback({'views':item.views});
       }
   };
 }
 
-function sendChatMessage(message, key) {
+function sendChatMessage(message, username) {
   var result;
   $.ajax({
-        url: "https://live.alois.xyz/api/?SendChatMessage="+message+"&key="+key,
+        url: "https://alois.xyz:3002/send?msg="+message+"&chan"+username,
         type: 'get',
         dataType: 'json',
         async: false,
@@ -39,28 +41,6 @@ function getStreams(limit) {
      });
   return result;
 }
-
-function getViews(username) {
-  var views;
-  $.ajax({
-        url: "https://live.alois.xyz/api/?GetViews="+username,
-        type: 'get',
-        dataType: 'html',
-        async: false,
-        success: function(data) {
-            views = data;
-        }
-     });
-  return views;
-}
-
-function getViewsLive(username, callback) {
-  var evtSource = new EventSource("https://live.alois.xyz/api/?GetViewsLive="+username);
-  evtSource.onmessage = function(e) {
-      callback(e.data);
-    };
-}
-
 function getUserDetails(username) {
   var result;
   $.ajax({
