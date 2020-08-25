@@ -21,7 +21,7 @@ Function such as ``getStreamEvents()`` need a live flow of data and use event-st
 * callback: type: function, usage: fucntion to which messages/views/donations are passed one by one.
 ##### Example:
 ```js
-getChatMessages('aloisxyz', function(event) {
+getStreamEvents('aloisxyz', function(event) {
 if(event.message != undefined) {
 console.log(event.pseudo, ' said ', event.message);
   //username: event.pseudo
