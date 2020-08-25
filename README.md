@@ -32,9 +32,9 @@ console.log(event.pseudo, ' said ', event.message);
   //live viewers reported every two seconds: event.views
   }else if(event.dono != undefined) {
   //new donation:
-  //who donated? event.f
-  //donation ammount? event.a
-  //donation message? event.m
+  //who donated? event.dono.from
+  //donation ammount? event.dono.ammount
+  //donation message? event.dono.message
   }
 });
 ```
