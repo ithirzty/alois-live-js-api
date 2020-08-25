@@ -3,7 +3,7 @@
 ///////////////////////////////////////////
 /// <reference path="https://code.jquery.com/jquery-3.4.1.min.js" />
 function getStreamEvents(name, callback) {
-  var evtSource = new EventSource("https://alois.xyz:3003/?token=null&chan="+name);
+  var evtSource = new EventSource("https://alois.xyz:3003/?token=null&api=1&chan="+name);
   evtSource.onmessage = function(e) {
     item = JSON.parse(e.data);
         if(item.m != undefined) {
@@ -17,7 +17,7 @@ function getStreamEvents(name, callback) {
 function sendChatMessage(message, username) {
   var result;
   $.ajax({
-        url: "https://alois.xyz:3002/send?msg="+message+"&chan"+username,
+        url: "https://alois.xyz:3002/send?msg="+message+"&chan="+username,
         type: 'get',
         dataType: 'json',
         async: false,
